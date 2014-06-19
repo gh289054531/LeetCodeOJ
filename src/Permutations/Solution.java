@@ -19,7 +19,8 @@ public class Solution {
 	}
 
 	private void permute(ArrayList<Integer> num, int length, ArrayList<ArrayList<Integer>> result) {
-		if (length == 0) {
+		if (length == 1) {
+			result.add(num);
 			return;
 		}
 		for (int i = 0; i < length; i++) {
@@ -27,9 +28,6 @@ public class Solution {
 			int temp = cur.get(length - 1);
 			cur.set(length - 1, cur.get(i));
 			cur.set(i, temp);
-			if (result.contains(cur) == false) {
-				result.add(cur);
-			}
 			permute(cur, length - 1, result);
 		}
 	}

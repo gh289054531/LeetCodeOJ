@@ -1,6 +1,5 @@
 package RemoveElement;
 
-import java.util.Arrays;
 
 public class Solution {
 

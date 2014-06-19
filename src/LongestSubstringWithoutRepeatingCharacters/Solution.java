@@ -16,13 +16,15 @@ public class Solution {
 			char c = s.charAt(i);
 			if (set.containsKey(c)) {
 				max = i - left > max ? i - left : max;
-				int j;
-				for (j = left; j < set.get(c); j++) {
-					set.remove(s.charAt(j));
+				int oldPos = set.get(c);
+				for (int m = left; m < oldPos; m++) {
+					set.remove(s.charAt(m));
 				}
-				left = j + 1;
+				left = oldPos + 1;
+				set.put(c, i);
+			} else {
+				set.put(c, i);
 			}
-			set.put(c, i);
 		}
 		max = s.length() - left > max ? s.length() - left : max;
 		return max;
